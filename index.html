@@ -13,7 +13,7 @@
             padding-bottom: 90px;
         }
 
-        /* Top Header & Bio Section */
+        /* Header Section */
         header { 
             text-align: center; 
             padding: 35px 20px 25px 20px; 
@@ -39,7 +39,7 @@
 
         .bio-text p { margin-top: 8px; }
 
-        /* Main Container */
+        /* Container */
         .container { 
             max-width: 680px; 
             margin: 25px auto; 
@@ -124,7 +124,7 @@
             background: #333333;
         }
 
-        /* About Section (Like Video) */
+        /* About Section */
         .about-section {
             background: #ffffff;
             border-radius: 12px;
@@ -166,7 +166,7 @@
             text-decoration: underline;
         }
 
-        /* Floating Sticky Bottom Bar */
+        /* Bottom Bar */
         .bottom-nav {
             position: fixed;
             bottom: 20px;
@@ -307,6 +307,7 @@
 </head>
 <body>
 
+    <!-- Header Section -->
     <header>
         <img src="logo.png" alt="Raiyan Visuals Logo" class="store-logo">
         <div class="bio-text">
@@ -315,8 +316,10 @@
         </div>
     </header>
 
+    <!-- Main Container -->
     <div class="container">
 
+        <!-- Photo Item 1 -->
         <div class="photo-card">
             <div class="img-wrapper" onclick="openPurchaseModal('Heritage Sweets Night', '500', '1200')">
                 <img src="https://picsum.photos/800/550?random=1" alt="Heritage Sweets">
@@ -331,6 +334,7 @@
             </div>
         </div>
 
+        <!-- Photo Item 2 -->
         <div class="photo-card">
             <div class="img-wrapper" onclick="openPurchaseModal('Urban Station Clock', '400', '1000')">
                 <img src="https://picsum.photos/800/550?random=2" alt="Station Clock">
@@ -345,6 +349,7 @@
             </div>
         </div>
 
+        <!-- Photo Item 3 -->
         <div class="photo-card">
             <div class="img-wrapper" onclick="openPurchaseModal('Clay Pottery Market', '600', '1400')">
                 <img src="https://picsum.photos/800/550?random=3" alt="Clay Pottery">
@@ -359,6 +364,7 @@
             </div>
         </div>
 
+        <!-- About Section -->
         <div class="about-section" id="aboutSec">
             <h2>About</h2>
             <p>Hi, I'm Raiyan, a passionate photographer from Bangladesh. I love capturing travel, street life, nature, and the little moments that make life beautiful.</p>
@@ -372,6 +378,7 @@
 
     </div>
 
+    <!-- Bottom Nav Bar -->
     <div class="bottom-nav">
         <a href="#" class="nav-item" title="Cart">🛒</a>
         <a href="#" class="nav-item" onclick="alert('Search feature coming soon!')" title="Search">🔍</a>
@@ -380,6 +387,7 @@
         <button class="nav-menu-btn" onclick="document.getElementById('aboutSec').scrollIntoView({behavior: 'smooth'})">MENU</button>
     </div>
 
+    <!-- Purchase Modal -->
     <div id="purchaseModal" class="modal">
         <div class="modal-card">
             <span class="close-btn" onclick="closeModal('purchaseModal')">&times;</span>
@@ -411,6 +419,7 @@
         </div>
     </div>
 
+    <!-- bKash Modal -->
     <div id="bkashModal" class="modal">
         <div class="modal-card">
             <span class="close-btn" onclick="closeModal('bkashModal')">&times;</span>
