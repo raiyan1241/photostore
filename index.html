@@ -3,41 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raiyan Visuals | Store</title>
+    <title>Raiyan Visuals | Photography Store</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        html { scroll-behavior: smooth; }
 
         body { 
-            background-color: #f5f5f7; 
-            color: #1d1d1f; 
-            padding-bottom: 90px;
+            background-color: #4a001f; 
+            color: #fcd5b5; 
+            padding-bottom: 100px;
+            animation: fadeInBody 1s ease-in-out;
+        }
+
+        @keyframes fadeInBody {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Header Section */
         header { 
             text-align: center; 
             padding: 35px 20px 25px 20px; 
-            background: #ffffff;
-            border-bottom: 1px solid #e5e5e5;
+            background: #310014;
+            border-bottom: 1px solid #731338;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .store-logo { 
-            width: 90px; 
-            height: 90px; 
-            object-fit: contain;
+            width: 100px; 
+            height: auto; 
             margin-bottom: 15px; 
-            border-radius: 8px;
+            border-radius: 10px; 
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .store-logo:hover { transform: scale(1.08) rotate(2deg); }
+
+        header h1 { 
+            font-size: 2.2rem; 
+            color: #ffab76; 
+            letter-spacing: 2px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
         }
 
         .bio-text { 
             max-width: 580px; 
-            margin: 0 auto; 
+            margin: 8px auto 0; 
             font-size: 0.95rem; 
             line-height: 1.5; 
-            color: #424245; 
+            color: #fcd5b5; 
+            opacity: 0.9;
         }
-
-        .bio-text p { margin-top: 8px; }
 
         /* Container */
         .container { 
@@ -46,40 +63,47 @@
             padding: 0 15px; 
         }
 
-        /* Feed Photo Items */
+        /* Photo Feed Items with Animations */
         .photo-card { 
-            background: #ffffff; 
+            background: #310014; 
             border-radius: 12px; 
             overflow: hidden; 
             margin-bottom: 30px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #eaeaea;
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border: 1px solid #731338;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .photo-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 30px rgba(0,0,0,0.5);
+            border-color: #ffab76;
         }
 
         .img-wrapper { 
             position: relative; 
             width: 100%; 
-            background: #e1e1e1; 
+            height: 380px;
+            background: #1f000d; 
+            overflow: hidden;
             cursor: pointer;
         }
 
         .img-wrapper img { 
             width: 100%; 
-            display: block; 
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
+
+        .photo-card:hover .img-wrapper img { transform: scale(1.08); }
 
         .watermark {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.35);
             font-size: 1.5rem;
             font-weight: bold;
             letter-spacing: 3px;
@@ -88,107 +112,114 @@
         }
 
         .photo-info { 
-            padding: 16px 20px; 
+            padding: 18px 20px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: #ffffff;
-            border-top: 1px solid #f0f0f0;
+            background: #310014;
+            border-top: 1px solid #520023;
         }
 
         .photo-title { 
-            font-size: 1rem; 
+            font-size: 1.1rem; 
             font-weight: 600; 
-            color: #1d1d1f; 
+            color: #ffffff; 
         }
 
         .photo-price { 
-            font-size: 0.9rem; 
-            color: #6e6e73; 
-            font-weight: 500; 
+            font-size: 0.88rem; 
+            color: #ffab76; 
+            margin-top: 3px;
         }
 
         .btn-buy-feed {
-            background: #000000;
-            color: #ffffff;
+            background-color: #ffab76; 
+            color: #310014;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.88rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .btn-buy-feed:hover {
-            background: #333333;
+            background-color: #f79456;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 171, 118, 0.3);
         }
 
         /* About Section */
         .about-section {
-            background: #ffffff;
+            background: #310014;
             border-radius: 12px;
             padding: 30px 25px;
             margin-top: 40px;
-            border: 1px solid #eaeaea;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #731338;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .about-section h2 {
             font-size: 1.3rem;
             margin-bottom: 12px;
+            color: #ffab76;
         }
 
         .about-section p {
             font-size: 0.95rem;
-            color: #515154;
+            color: #fcd5b5;
             line-height: 1.6;
             margin-bottom: 15px;
+            opacity: 0.9;
         }
 
         .about-socials {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 20px;
         }
 
-        .about-socials a {
-            color: #1d1d1f;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
+        .social-btn {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
+        .insta-btn { background: #E1306C; color: white; }
+        .insta-btn:hover { background: #c1285b; transform: translateY(-2px); }
+        
+        .email-btn { background: #EA4335; color: white; }
+        .email-btn:hover { background: #d3382b; transform: translateY(-2px); }
 
-        .about-socials a:hover {
-            text-decoration: underline;
-        }
-
-        /* Bottom Bar */
+        /* Floating Bottom Nav */
         .bottom-nav {
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(49, 0, 20, 0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid #731338;
             border-radius: 30px;
             padding: 8px 18px;
             display: flex;
             align-items: center;
             gap: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
 
         .nav-item {
             background: none;
             border: none;
-            color: #1d1d1f;
+            color: #fcd5b5;
             font-size: 1.1rem;
             cursor: pointer;
             padding: 6px;
@@ -200,26 +231,21 @@
             transition: background 0.2s;
         }
 
-        .nav-item:hover {
-            background: #f0f0f0;
-        }
+        .nav-item:hover { background: #520023; }
 
         .nav-menu-btn {
-            background: #1d1d1f;
-            color: #ffffff;
+            background: #ffab76;
+            color: #310014;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.82rem;
-            font-weight: 600;
+            font-weight: bold;
             letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
             cursor: pointer;
             border: none;
         }
 
-        /* Modals */
+        /* Modal Styles */
         .modal {
             display: flex;
             position: fixed;
@@ -227,27 +253,32 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease-in-out;
         }
 
         .modal.active { opacity: 1; visibility: visible; }
 
         .modal-card {
-            background: #ffffff;
+            background: #310014;
             width: 90%;
             max-width: 440px;
             border-radius: 16px;
             padding: 25px;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 1px solid #ffab76;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .modal.active .modal-card { transform: scale(1) translateY(0); }
 
         .close-btn {
             position: absolute;
@@ -255,21 +286,23 @@
             top: 15px;
             font-size: 1.4rem;
             cursor: pointer;
-            color: #888;
+            color: #ffab76;
+            transition: transform 0.2s;
         }
+        .close-btn:hover { transform: rotate(90deg); }
 
-        .modal-card h3 { font-size: 1.2rem; margin-bottom: 15px; text-align: center; }
+        .modal-card h3 { font-size: 1.2rem; margin-bottom: 15px; text-align: center; color: #ffab76; }
 
         .purchase-box {
-            background: #f8f8f8;
+            background: #1f000d;
             border-radius: 10px;
             padding: 14px;
             margin-bottom: 12px;
-            border: 1px solid #eee;
+            border: 1px solid #520023;
         }
 
-        .p-title { font-weight: 600; font-size: 0.95rem; display: flex; justify-content: space-between; margin-bottom: 4px; }
-        .p-desc { font-size: 0.82rem; color: #666; margin-bottom: 10px; }
+        .p-title { font-weight: bold; font-size: 0.95rem; color: #ffab76; display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .p-desc { font-size: 0.82rem; color: #fcd5b5; opacity: 0.8; margin-bottom: 10px; }
 
         .btn-flex { display: flex; gap: 8px; }
         .btn-opt {
@@ -277,22 +310,27 @@
             padding: 9px;
             border-radius: 6px;
             border: none;
-            font-weight: 600;
+            font-weight: bold;
             font-size: 0.82rem;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
-        .btn-card { background: #1d1d1f; color: #fff; }
+        .btn-card { background: #ffab76; color: #310014; }
+        .btn-card:hover { background: #f79456; }
         .btn-bkash { background: #e2136e; color: #fff; }
+        .btn-bkash:hover { background: #c2105e; }
 
         .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.82rem; margin-bottom: 4px; color: #333; font-weight: 500; }
+        .form-group label { display: block; font-size: 0.82rem; margin-bottom: 4px; color: #ffab76; }
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
+            border-radius: 6px;
+            border: 1px solid #731338;
+            background: #1f000d;
+            color: white;
             font-size: 0.9rem;
             outline: none;
         }
@@ -301,25 +339,24 @@
             text-align: center;
             padding: 30px 15px 100px 15px;
             font-size: 0.85rem;
-            color: #86868b;
+            color: #ffab76;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <img src="logo.png" alt="Raiyan Visuals Logo" class="store-logo">
+        <h1>Raiyan Visuals</h1>
         <div class="bio-text">
             <p>🎥 Photographer | Travel • Street • Nature</p>
             <p>Capturing beautiful moments, unique places, and everyday stories through my lens. Every frame tells a story. 🌐</p>
         </div>
     </header>
 
-    <!-- Main Container -->
     <div class="container">
 
-        <!-- Photo Item 1 -->
         <div class="photo-card">
             <div class="img-wrapper" onclick="openPurchaseModal('Heritage Sweets Night', '500', '1200')">
                 <img src="https://picsum.photos/800/550?random=1" alt="Heritage Sweets">
@@ -334,7 +371,6 @@
             </div>
         </div>
 
-        <!-- Photo Item 2 -->
         <div class="photo-card">
             <div class="img-wrapper" onclick="openPurchaseModal('Urban Station Clock', '400', '1000')">
                 <img src="https://picsum.photos/800/550?random=2" alt="Station Clock">
@@ -349,7 +385,6 @@
             </div>
         </div>
 
-        <!-- Photo Item 3 -->
         <div class="photo-card">
             <div class="img-wrapper" onclick="openPurchaseModal('Clay Pottery Market', '600', '1400')">
                 <img src="https://picsum.photos/800/550?random=3" alt="Clay Pottery">
@@ -364,21 +399,19 @@
             </div>
         </div>
 
-        <!-- About Section -->
         <div class="about-section" id="aboutSec">
             <h2>About</h2>
             <p>Hi, I'm Raiyan, a passionate photographer from Bangladesh. I love capturing travel, street life, nature, and the little moments that make life beautiful.</p>
             <p>Through my photography, I try to tell stories and share the world from my perspective. Thank you for visiting Raiyan Visuals and supporting my journey as a photographer.</p>
 
             <div class="about-socials">
-                <a href="https://instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank">📷 Instagram</a>
-                <a href="mailto:YOUR_EMAIL@gmail.com">✉️ Email Us</a>
+                <a href="https://instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank" class="social-btn insta-btn">📷 Instagram</a>
+                <a href="mailto:YOUR_EMAIL@gmail.com" class="social-btn email-btn">✉️ Email Us</a>
             </div>
         </div>
 
     </div>
 
-    <!-- Bottom Nav Bar -->
     <div class="bottom-nav">
         <a href="#" class="nav-item" title="Cart">🛒</a>
         <a href="#" class="nav-item" onclick="alert('Search feature coming soon!')" title="Search">🔍</a>
@@ -387,7 +420,6 @@
         <button class="nav-menu-btn" onclick="document.getElementById('aboutSec').scrollIntoView({behavior: 'smooth'})">MENU</button>
     </div>
 
-    <!-- Purchase Modal -->
     <div id="purchaseModal" class="modal">
         <div class="modal-card">
             <span class="close-btn" onclick="closeModal('purchaseModal')">&times;</span>
@@ -419,12 +451,11 @@
         </div>
     </div>
 
-    <!-- bKash Modal -->
     <div id="bkashModal" class="modal">
         <div class="modal-card">
             <span class="close-btn" onclick="closeModal('bkashModal')">&times;</span>
             <h3 style="color:#e2136e;">bKash Payment Form</h3>
-            <p style="text-align:center; font-size:0.85rem; margin-bottom:15px;">Send Money to: <strong style="color:#e2136e;">01XXXXXXXXX</strong></p>
+            <p style="text-align:center; font-size:0.85rem; margin-bottom:15px;">Send Money to: <strong style="color:#e2136e;">YOUR_BKASH_NUMBER</strong></p>
 
             <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
                 <input type="hidden" id="form_product" name="Product Name">
